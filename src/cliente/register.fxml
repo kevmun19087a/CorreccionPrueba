@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="cliente.RegisterController" spacing="8">
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10" />
+    </padding>
+    <children>
+        <Label text="Registrar Usuario" style="-fx-font-size:14px; -fx-font-weight:bold;" />
+        <GridPane hgap="8" vgap="8">
+            <columnConstraints>
+                <ColumnConstraints minWidth="100" halignment="RIGHT" />
+                <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
+            <children>
+                <Label text="Cédula:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                <TextField fx:id="cedulaField" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+                <Label text="Nombre:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                <TextField fx:id="nombreField" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+                <Label text="Correo:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                <TextField fx:id="correoField" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+                <Label text="Teléfono:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                <TextField fx:id="telefonoField" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+
+                <Label text="Preferencial:" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                <CheckBox fx:id="preferencialCheck" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+            </children>
+        </GridPane>
+        <HBox spacing="8">
+            <children>
+                <Button text="Registrar" onAction="#onRegistrar" />
+                <Button text="Cancelar" onAction="#onCancelar" />
+            </children>
+        </HBox>
+        <Label fx:id="messageLabel" text="" />
+    </children>
+</VBox>
+

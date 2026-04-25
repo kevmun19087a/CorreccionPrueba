@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="cliente.Cliente">
+    <VBox spacing="10.0" AnchorPane.topAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="20.0">
+        <children>
+            <Label text="Buscar Usuario por Cédula" style="-fx-font-size:16px; -fx-font-weight:bold;" />
+            <TextField fx:id="cedulaField" promptText="Ingrese cédula" />
+            <HBox spacing="8">
+                <children>
+                    <Button fx:id="btnBuscar" text="Buscar" onAction="#onBuscar" />
+                    <Button fx:id="btnRegistrar" text="Registrar" onAction="#onRegistrar" />
+                </children>
+            </HBox>
+            <Label text="Resultado:" />
+            <TextArea fx:id="resultArea" prefRowCount="8" wrapText="true" />
+        </children>
+    </VBox>
+</AnchorPane>
+

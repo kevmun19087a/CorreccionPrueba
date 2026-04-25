@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="cliente.RecargaController" spacing="8" alignment="TOP_LEFT">
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10" />
+    </padding>
+    <children>
+        <Label text="Recargar Tarjeta" style="-fx-font-size:14px; -fx-font-weight:bold;" />
+        <Label text="Monto a recargar:" />
+        <TextField fx:id="montoField" promptText="Ej: 5.50" />
+        <HBox spacing="8">
+            <children>
+                <Button fx:id="btnRecargar" text="Recargar" onAction="#onRecargar" />
+                <Button fx:id="btnAsignar" text="Asignar tarjeta" onAction="#onAsignar" />
+                <Button fx:id="btnCancelar" text="Cancelar" onAction="#onCancelar" />
+            </children>
+        </HBox>
+        <Label fx:id="messageLabel" />
+    </children>
+</VBox>
+
