@@ -123,7 +123,6 @@ public class DatabaseManager {
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
-            // si clave duplicada, ya existe la fila
             if (ex.getErrorCode() == 1062) return false;
             throw ex;
         }
@@ -152,7 +151,6 @@ public class DatabaseManager {
             ps.setString(2, cedula);
             int updated = ps.executeUpdate();
             if (updated == 0) {
-                // no existía, insertar como asignada
                 String ins = "INSERT INTO tarjetas(cedula,asignada,saldo) VALUES(?,TRUE,?)";
                 try (PreparedStatement ps2 = conn.prepareStatement(ins)) {
                     ps2.setString(1, cedula);
