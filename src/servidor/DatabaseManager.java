@@ -10,7 +10,7 @@ public class DatabaseManager {
         String port = System.getenv().getOrDefault("DB_PORT", "3306");
         String dbName = System.getenv().getOrDefault("DB_NAME", "correccion");
         String user = System.getenv().getOrDefault("DB_USER", "root");
-        String pass = System.getenv().getOrDefault("DB_PASS", "KBY99ac_");
+        String pass = System.getenv().getOrDefault("DB_PASS", "password_bdd");
 
         String url = String.format("jdbc:mysql://%s:%s/%s?useSSL=false&serverTimezone=UTC", host, port, dbName);
         try {
