@@ -15,11 +15,21 @@ public class Usuario {
         this.preferencial = preferencial;
     }
 
-    public String getCedula() { return cedula; }
-    public String getCorreo() { return correo; }
-    public String getTelefono() { return telefono; }
-    public String getNombre() { return nombre; }
-    public boolean isPreferencial() { return preferencial; }
+    public String getCedula() {
+        return cedula;
+    }
+    public String getCorreo() {
+        return correo;
+    }
+    public String getTelefono() {
+        return telefono;
+    }
+    public String getNombre() {
+        return nombre;
+    }
+    public boolean isPreferencial() {
+        return preferencial;
+    }
 
     @Override
     public String toString() {
