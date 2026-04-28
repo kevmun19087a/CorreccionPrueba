@@ -1,11 +1,13 @@
 package servidor;
-
+// Importacion las clases necesarias para trabajar con base de daatos
 import java.sql.*;
 
 public class DatabaseManager {
+    //Variable la cual guarad la conexion activa de la base de datos
     private Connection conn;
 
     public DatabaseManager() throws SQLException {
+        //Conexion de la base de datos en caso de no tener una activa se conecta a localhost
         String host = System.getenv().getOrDefault("DB_HOST", "localhost");
         String port = System.getenv().getOrDefault("DB_PORT", "3306");
         String dbName = System.getenv().getOrDefault("DB_NAME", "correccion");
@@ -25,6 +27,7 @@ public class DatabaseManager {
             throw new SQLException("No se pudo conectar a la base de datos: " + ex.getMessage(), ex);
         }
     }
+    //Creacion de tablas
 
     public void init() throws SQLException {
         String ddl = "CREATE TABLE IF NOT EXISTS usuarios ("
@@ -34,9 +37,11 @@ public class DatabaseManager {
                 + "telefono VARCHAR(50),"
                 + "preferencial BOOLEAN NOT NULL"
                 + ") ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+        //Ejecucion de la tabla creada caso contrario si la tabla no esta aun crada la crea
         try (Statement st = conn.createStatement()) {
             st.execute(ddl);
         }
+        // Define el sql para la creacion de tabla Usuarios
         String ddlTar = "CREATE TABLE IF NOT EXISTS tarjetas ("
                 + "cedula VARCHAR(50) PRIMARY KEY,"
                 + "saldo DOUBLE DEFAULT 0.0,"
@@ -45,6 +50,7 @@ public class DatabaseManager {
         try (Statement st = conn.createStatement()) {
             st.execute(ddlTar);
         }
+        // Verificacion si la columna existe o no
         String checkCol = "SELECT COUNT(*) FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = ? AND TABLE_NAME = 'tarjetas' AND COLUMN_NAME = 'asignada'";
         try (PreparedStatement ps = conn.prepareStatement(checkCol)) {
             String catalog = conn.getCatalog();
