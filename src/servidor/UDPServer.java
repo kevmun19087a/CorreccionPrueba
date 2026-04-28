@@ -8,11 +8,12 @@ import java.sql.SQLException;
 import java.util.Locale;
 
 public class UDPServer {
-
+// Conexion a la base de datos
     private static final int PORT = 5000;
     private DatabaseManager db;
 
     public void start() throws Exception {
+        // Inicializa la base de datos
         try {
             db = new DatabaseManager();
             db.init();
@@ -46,10 +47,13 @@ public class UDPServer {
     private String handleRequest(String req) {
         try {
             if (req == null || req.isEmpty()) return "ERROR: petición vacía";
+            //Crear usuario
             if (req.startsWith("CREAR:")) {
                 String body = req.substring(6);
+                //Extracion de datos despues de crearlo
                 String[] parts = body.split("\\|");
                 if (parts.length != 5) return "ERROR: formato CREAR inválido";
+                // Extrae datos
                 String ced = parts[0].trim();
                 String nombre = parts[1].trim();
                 String correo = parts[2].trim();
