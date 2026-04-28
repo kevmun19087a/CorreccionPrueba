@@ -27,6 +27,7 @@ public class Usuario {
     public String getNombre() {
         return nombre;
     }
+      // Indica si el usuario es preferencial (true o false)
     public boolean isPreferencial() {
         return preferencial;
     }
