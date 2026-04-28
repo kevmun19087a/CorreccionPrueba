@@ -18,22 +18,27 @@ public class Usuario {
     public String getCedula() {
         return cedula;
     }
+
     public String getCorreo() {
         return correo;
     }
+
     public String getTelefono() {
         return telefono;
     }
+
     public String getNombre() {
         return nombre;
     }
-      // Indica si el usuario es preferencial (true o false)
+
+    // Getter booleano estándar
     public boolean isPreferencial() {
         return preferencial;
     }
 
     @Override
     public String toString() {
+        // Representación en texto para logs/respuestas
         return "Usuario{cedula='" + cedula + "', nombre='" + nombre + "', correo='" + correo + "', telefono='" + telefono + "', preferencial=" + preferencial + "}";
     }
 }
